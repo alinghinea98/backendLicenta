@@ -46,19 +46,29 @@ public class UserService implements UserDetailsService{
 	public User createUser(User user) {
 //		user.setPassword(passwordEncoder.encode(user.getPassword()));
 		user.setPassword(user.getPassword());
-		user.setUserType("Admin");
+		user.setUserType("admin");
 		return saveUser(user);
 	}
 	
 	public User createCareGiver(User user) {
-		user.setPassword(passwordEncoder.encode(user.getPassword()));
-		user.setUserType("Caregiver");
+		//user.setPassword(passwordEncoder.encode(user.getPassword()));
+		user.setUserType("caregiver");
+		return saveUser(user);
+	}
+	
+	public User createEnduser(User user) {
+		//user.setPassword(passwordEncoder.encode(user.getPassword()));
+		user.setUserType("enduser");
 		return saveUser(user);
 	}
 	
 	
-	public void deleteUser(Long id) {
-		userRepository.deleteById(id);
+	public void deleteUser(String username) {
+		userRepository.deleteByUsername(username);
+	}
+	
+	public void deleteUserByRole(String username, String role) {
+		userRepository.deleteUserByRole(username, role);
 	}
 	
 	public void updateUser(User user) {

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -34,16 +35,23 @@ public class UserController {
 		return userTransformer.toDto(userService.getUsers(username, password));
 	}
 	
-	@PostMapping(value = "/create", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	@PostMapping(value = "/create", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(HttpStatus.CREATED)
-	public UserDto createUser(@Validated @RequestBody UserDto user) {
-		return userTransformer.toDto(userService.createUser(userTransformer.toEntity(user)));
+	public @ResponseBody UserDto createUser(UserDto user) {
+		System.out.println(user);
+		return userTransformer.toDto(userService.createUser(userTransformer.toEntity(user))); // valorile vin in alt format la app form url encoded
 	}
 	
-	@PostMapping(value = "/create/caregiver", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	@PostMapping(value = "/create/caregiver", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(HttpStatus.CREATED)
-	public UserDto createCareGiver(@Validated @RequestBody UserDto user) {
+	public UserDto createCareGiver(@Validated UserDto user) {
 		return userTransformer.toDto(userService.createCareGiver(userTransformer.toEntity(user)));
+	}
+	
+	@PostMapping(value = "/create/enduser", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseStatus(HttpStatus.CREATED)
+	public UserDto createEnduser(@Validated UserDto user) {
+		return userTransformer.toDto(userService.createEnduser(userTransformer.toEntity(user)));
 	}
 	
 	@PutMapping(value = "/update", consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -52,11 +60,16 @@ public class UserController {
 		userService.updateUser(userTransformer.toEntity(user));
 	}
 	
-	@DeleteMapping(value = "/{id}/delete")
+	@DeleteMapping(value = "/{username}/delete")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
-	public void deleteUser(@PathVariable Long id) {
-		userService.deleteUser(id);
+	public void deleteUser(@PathVariable String username) {
+		userService.deleteUser(username);
 	}
 	
+	@DeleteMapping(value = "/{username}/delete/{role}")
+	@ResponseStatus(HttpStatus.NO_CONTENT)
+	public void deleteUserByRole(@PathVariable String username, @PathVariable String role) {
+		userService.deleteUserByRole(username, role);
+	}
 	
 }
