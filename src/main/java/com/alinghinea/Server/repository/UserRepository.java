@@ -31,6 +31,6 @@ public interface UserRepository extends JpaRepository<User, Long>{
 	
 	@Modifying
 	@Query(value="UPDATE  application_db.utilizatori SET is_deleted = 1 where username = :username AND role = :role", nativeQuery = true)
-	void deleteUserByRole(@Param("username") String username, @Param("role") String role); // for caregiver and enduser
+	void deleteUserByRole(@Param("username") String username, @Param("role") String role); 
 	
 }
