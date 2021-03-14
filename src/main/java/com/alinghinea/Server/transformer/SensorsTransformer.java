@@ -1,10 +1,11 @@
 package com.alinghinea.Server.transformer;
 
-import org.springframework.beans.BeanUtils;
-
 import com.alinghinea.Server.dto.SensorsDto;
 import com.alinghinea.Server.entities.Sensors;
+import org.springframework.beans.BeanUtils;
+import org.springframework.stereotype.Component;
 
+@Component
 public class SensorsTransformer extends AbstractTransformer<Sensors, SensorsDto>{
 
 	
