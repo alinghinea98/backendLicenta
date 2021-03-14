@@ -33,7 +33,7 @@ public class SensorsController {
 		return transformer.toDto(service.createSensors(transformer.toEntity(sensors)));
 	}
 	
-	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value="/user",produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<SensorsDto> getSensorsByUser(@RequestParam("id") long id) {
 		List<Sensors> sensors = service.getListByUserId(id);
 		List<SensorsDto> sensorsDto = new ArrayList<SensorsDto>();
