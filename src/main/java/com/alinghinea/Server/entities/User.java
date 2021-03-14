@@ -1,12 +1,12 @@
 package com.alinghinea.Server.entities;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
-//import javax.persistence.EnumType;
-//import javax.persistence.Enumerated;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-
 import org.hibernate.validator.constraints.Length;
 
 
@@ -41,11 +41,13 @@ public class User extends BaseEntity{
 	private String phone;
 	
 	@Column(name = "ROLE", nullable = false)
-//	@Enumerated(EnumType.STRING)
 	private String userType;
 	
 	@Column(name = "IS_DELETED", nullable = true)
 	private int isDeleted;
+	
+	@OneToMany(mappedBy="user")
+	private Set<Sensors> sensors;
 	
 	@Column(name = "KIT_ID")
 	@NotNull
