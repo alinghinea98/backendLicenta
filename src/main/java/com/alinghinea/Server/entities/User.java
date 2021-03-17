@@ -1,13 +1,13 @@
 package com.alinghinea.Server.entities;
 
-import java.util.Set;
+import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-import org.hibernate.validator.constraints.Length;
+import java.util.Set;
 
 
 @Entity
@@ -48,6 +48,9 @@ public class User extends BaseEntity{
 	
 	@OneToMany(mappedBy="user")
 	private Set<Sensors> sensors;
+
+	@OneToMany(mappedBy="user")
+	private Set<Alert> alerts;
 	
 	@Column(name = "KIT_ID")
 	@NotNull
