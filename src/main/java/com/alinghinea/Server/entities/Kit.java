@@ -1,15 +1,16 @@
 package com.alinghinea.Server.entities;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "kit")
 public class Kit extends BaseEntity {
     private static final long serialVersionUID = 1L;
 
-    @ManyToOne
+    @OneToMany(mappedBy="user")
     @JoinColumn(name="user_id", nullable = true)
-    private User user;
+    private Set<User> user;
 
     @Column(name = "sensor_type_1",length = 128)
     private String sensorType1;
@@ -55,11 +56,11 @@ public class Kit extends BaseEntity {
         this.sensorType4 = sensorType4;
     }
 
-    public User getUser() {
+    public Set<User> getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(Set<User> user) {
         this.user = user;
     }
 }

@@ -2,10 +2,7 @@ package com.alinghinea.Server.entities;
 
 import org.hibernate.validator.constraints.Length;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Set;
 
 
@@ -53,13 +50,10 @@ public class User extends BaseEntity{
 
 	@OneToMany(mappedBy="user")
 	private Set<Alert> alerts;
-	
-//	@Column(name = "KIT_ID")
-//	@NotNull
-//	private int kitId;
 
-	@OneToMany(mappedBy="user")
-	private Set<Kit> kitId;
+
+	@ManyToOne
+	private Kit kitId;
 
 	public String getUsername() {
 		return username;
