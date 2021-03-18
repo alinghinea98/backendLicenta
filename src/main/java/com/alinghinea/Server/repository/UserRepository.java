@@ -32,7 +32,7 @@ public interface UserRepository extends JpaRepository<User, Long>{
 	@Query(value="UPDATE  16Ec3VcgYd.utilizatori SET is_deleted = 1 where username = :username AND role = :role", nativeQuery = true)
 	void deleteUserByRole(@Param("username") String username, @Param("role") String role);
 
-	@Query(value = "SELECT * FROM 16Ec3VcgYd.utilizatori WHERE enduserPin = :enduserPin",
+	@Query(value = "SELECT * FROM 16Ec3VcgYd.utilizatori WHERE ENDUSER_PIN = :enduserPin",
 			nativeQuery = true)
 	User getUserByPin(@Param("enduserPin")double enduserPin);
 }
