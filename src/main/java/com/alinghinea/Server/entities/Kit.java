@@ -1,18 +1,15 @@
 package com.alinghinea.Server.entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import java.util.Set;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "kit")
 public class Kit extends BaseEntity {
     private static final long serialVersionUID = 1L;
 
-    @OneToMany(mappedBy="user")
-    private Set<Kit> kit;
+    @ManyToOne
+    @JoinColumn(name="user_id", nullable=true)
+    private Kit kit; // maybe put User user
 
     @Column(name = "sensor_type_1",length = 128)
     private String sensorType1;
@@ -58,11 +55,11 @@ public class Kit extends BaseEntity {
         this.sensorType4 = sensorType4;
     }
 
-    public Set<Kit> getKit() {
+    public Kit getKit() {
         return kit;
     }
 
-    public void setKit(Set<Kit> kit) {
+    public void setKit(Kit kit) {
         this.kit = kit;
     }
 }

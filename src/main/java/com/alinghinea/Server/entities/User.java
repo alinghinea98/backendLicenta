@@ -2,7 +2,10 @@ package com.alinghinea.Server.entities;
 
 import org.hibernate.validator.constraints.Length;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import java.util.Set;
 
 
@@ -55,9 +58,8 @@ public class User extends BaseEntity{
 	@OneToMany(mappedBy="user")
 	private Set<Alert> alerts;
 
-	@ManyToOne
-	@JoinColumn(name="user_id", nullable = true)
-	private Kit kitId;
+	@OneToMany(mappedBy="user")
+	private Set<Kit> kitId;
 
 	public String getGender() {
 		return gender;
