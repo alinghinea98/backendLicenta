@@ -1,14 +1,13 @@
 package com.alinghinea.Server.repository;
 
-import java.util.Optional;
-
+import com.alinghinea.Server.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.alinghinea.Server.entities.User;
+import java.util.Optional;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long>{
@@ -31,6 +30,9 @@ public interface UserRepository extends JpaRepository<User, Long>{
 	
 	@Modifying
 	@Query(value="UPDATE  16Ec3VcgYd.utilizatori SET is_deleted = 1 where username = :username AND role = :role", nativeQuery = true)
-	void deleteUserByRole(@Param("username") String username, @Param("role") String role); 
-	
+	void deleteUserByRole(@Param("username") String username, @Param("role") String role);
+
+	@Query(value = "SELECT * FROM 16Ec3VcgYd.utilizatori WHERE enduserPin = :enduserPin",
+			nativeQuery = true)
+	User getUserByPin(@Param("enduserPin")double enduserPin);
 }

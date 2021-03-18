@@ -1,8 +1,9 @@
 package com.alinghinea.Server.service;
 
 //import java.util.List;
-import javax.annotation.PostConstruct;
 
+import com.alinghinea.Server.entities.User;
+import com.alinghinea.Server.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -11,9 +12,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-//import com.alinghinea.Server.entities.Type;
-import com.alinghinea.Server.entities.User;
-import com.alinghinea.Server.repository.UserRepository;
+import javax.annotation.PostConstruct;
 
 @Service
 @Transactional
@@ -61,7 +60,10 @@ public class UserService implements UserDetailsService{
 		user.setUserType("enduser");
 		return saveUser(user);
 	}
-	
+
+	public User getUserByPin(double pin) {
+		return userRepository.getUserByPin(pin);
+	}
 	
 	public void deleteUser(String username) {
 		userRepository.deleteByUsername(username);

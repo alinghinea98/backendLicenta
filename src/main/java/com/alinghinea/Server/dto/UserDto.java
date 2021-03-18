@@ -1,10 +1,10 @@
 package com.alinghinea.Server.dto;
 
+import com.alinghinea.Server.validation.UserValidation;
+
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-
-import com.alinghinea.Server.validation.UserValidation;
 
 @UserValidation
 public class UserDto extends BaseDto {
@@ -35,13 +35,8 @@ public class UserDto extends BaseDto {
 	@Size(min = 0, max = 32)
 	private String userType;
 
-	public String getUserType() {
-		return userType;
-	}
-
-	public void setUserType(String userType) {
-		this.userType = userType;
-	}
+	@Size(min = 0, max = 64)
+	private String enduserPin;
 
 	private boolean isDeleted;
 
@@ -112,4 +107,19 @@ public class UserDto extends BaseDto {
 		this.kitId = kitId;
 	}
 
+	public String getUserType() {
+		return userType;
+	}
+
+	public void setUserType(String userType) {
+		this.userType = userType;
+	}
+
+	public String getEnduserPin() {
+		return enduserPin;
+	}
+
+	public void setEnduserPin(String enduserPin) {
+		this.enduserPin = enduserPin;
+	}
 }

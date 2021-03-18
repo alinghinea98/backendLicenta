@@ -45,7 +45,10 @@ public class User extends BaseEntity{
 	
 	@Column(name = "IS_DELETED", nullable = true)
 	private int isDeleted;
-	
+
+	@Column(name = "ENDUSER_PIN", nullable = true)
+	private int enduserPin;
+
 	@OneToMany(mappedBy="user")
 	private Set<Sensors> sensors;
 
@@ -126,6 +129,14 @@ public class User extends BaseEntity{
 
 	public void setKitId(int kitId) {
 		this.kitId = kitId;
+	}
+
+	public int getEnduserPin() {
+		return enduserPin;
+	}
+
+	public void setEnduserPin(int enduserPin) {
+		this.enduserPin = enduserPin;
 	}
 
 }
