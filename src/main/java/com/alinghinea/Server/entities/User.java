@@ -58,7 +58,7 @@ public class User extends BaseEntity{
 	@OneToMany(mappedBy="user")
 	private Set<Alert> alerts;
 
-	@OneToMany(mappedBy="kit")
+	@OneToMany(mappedBy="user")
 	private Set<Kit> kitId;
 
 	public String getGender() {

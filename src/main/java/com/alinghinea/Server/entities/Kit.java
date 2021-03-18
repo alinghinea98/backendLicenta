@@ -9,7 +9,7 @@ public class Kit extends BaseEntity {
 
     @ManyToOne
     @JoinColumn(name="user_id", nullable=true)
-    private Kit kit; // maybe put User user
+    private User user; // maybe put User user
 
     @Column(name = "sensor_type_1",length = 128)
     private String sensorType1;
@@ -55,11 +55,11 @@ public class Kit extends BaseEntity {
         this.sensorType4 = sensorType4;
     }
 
-    public Kit getKit() {
-        return kit;
+    public User getUser() {
+        return user;
     }
 
-    public void setKit(Kit kit) {
-        this.kit = kit;
+    public void setUser(User user) {
+        this.user = user;
     }
 }
