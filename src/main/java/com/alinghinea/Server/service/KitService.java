@@ -16,4 +16,8 @@ public class KitService {
     public Kit createKit(Kit kit) {
         return kitRepository.save(kit);
     }
+
+    public Kit getKitId(long id) {
+        return kitRepository.getKitById(id);
+    }
 }

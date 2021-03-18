@@ -20,7 +20,13 @@ public class KitController {
 
     @PostMapping(consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
-    public @ResponseBody KitDto createKit(KitDto kit) {
+    public @ResponseBody
+    KitDto createKit(KitDto kit) {
         return kitTransformer.toDto(kitService.createKit(kitTransformer.toEntity(kit)));
+    }
+
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public KitDto getKit(long id) {
+        return kitTransformer.toDto(kitService.getKitId(id));
     }
 }
