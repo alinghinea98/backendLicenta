@@ -9,7 +9,7 @@ public class Kit extends BaseEntity {
     private static final long serialVersionUID = 1L;
 
     @OneToMany(mappedBy="user")
-    @JoinColumn(name="user_id", nullable = true)
+    @JoinColumn(name="kitId", nullable = true)
     private Set<User> user;
 
     @Column(name = "sensor_type_1",length = 128)

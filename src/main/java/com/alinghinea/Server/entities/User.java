@@ -51,7 +51,7 @@ public class User extends BaseEntity{
 	@OneToMany(mappedBy="user")
 	private Set<Alert> alerts;
 
-
+	@Column(name = "kitId")
 	@ManyToOne
 	private Kit kitId;
 
