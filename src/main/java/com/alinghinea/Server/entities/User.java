@@ -52,6 +52,7 @@ public class User extends BaseEntity{
 	private Set<Alert> alerts;
 
 	@ManyToOne
+	@JoinColumn(name="kitId", nullable = true)
 	private Kit kitId;
 
 	public String getUsername() {

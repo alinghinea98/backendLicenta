@@ -8,8 +8,7 @@ import java.util.Set;
 public class Kit extends BaseEntity {
     private static final long serialVersionUID = 1L;
 
-    @OneToMany(mappedBy="user")
-    @JoinColumn(name="kitId", nullable = true)
+    @OneToMany(mappedBy="user", cascade = CascadeType.ALL)
     private Set<Kit> kit;
 
     @Column(name = "sensor_type_1",length = 128)
