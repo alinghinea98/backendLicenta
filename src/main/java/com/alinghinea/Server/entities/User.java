@@ -59,7 +59,7 @@ public class User extends BaseEntity{
 	private Set<Alert> alerts;
 
 	@OneToMany(mappedBy="user")
-	@Column(name = "KIT_ID", nullable = false)
+	@Column(name = "KIT_ID", nullable = true)
 	private Set<Kit> kitId;
 
 	public String getGender() {
