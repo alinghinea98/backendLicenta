@@ -38,6 +38,17 @@ public class UserDto extends BaseDto {
 	@Size(min = 0, max = 64)
 	private String enduserPin;
 
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+	@Size(min = 0, max = 64)
+	private String gender;
+
 	private boolean isDeleted;
 
 	@NotNull

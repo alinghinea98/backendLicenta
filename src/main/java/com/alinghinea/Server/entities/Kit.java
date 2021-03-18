@@ -1,6 +1,9 @@
 package com.alinghinea.Server.entities;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import java.util.Set;
 
 @Entity
@@ -8,7 +11,7 @@ import java.util.Set;
 public class Kit extends BaseEntity {
     private static final long serialVersionUID = 1L;
 
-    @OneToMany(mappedBy="user", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy="user")
     private Set<Kit> kit;
 
     @Column(name = "sensor_type_1",length = 128)

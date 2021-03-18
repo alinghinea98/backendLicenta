@@ -35,6 +35,10 @@ public class User extends BaseEntity{
 	@Column(name = "PHONE", nullable = false, length = 64)
 	@Length(min = 0, max = 32)
 	private String phone;
+
+	@Column(name = "GENDER", nullable = false, length = 64)
+	@Length(min = 0, max = 32)
+	private String gender;
 	
 	@Column(name = "ROLE", nullable = false)
 	private String userType;
@@ -52,8 +56,16 @@ public class User extends BaseEntity{
 	private Set<Alert> alerts;
 
 	@ManyToOne
-	@JoinColumn(name="kitId", nullable = true)
+	@JoinColumn(name="user_id", nullable = true)
 	private Kit kitId;
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
 
 	public String getUsername() {
 		return username;
