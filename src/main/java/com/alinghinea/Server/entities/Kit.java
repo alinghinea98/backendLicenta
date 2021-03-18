@@ -10,7 +10,7 @@ public class Kit extends BaseEntity {
 
     @OneToMany(mappedBy="user")
     @JoinColumn(name="kitId", nullable = true)
-    private Set<User> user;
+    private Set<Kit> kit;
 
     @Column(name = "sensor_type_1",length = 128)
     private String sensorType1;
@@ -56,11 +56,11 @@ public class Kit extends BaseEntity {
         this.sensorType4 = sensorType4;
     }
 
-    public Set<User> getUser() {
-        return user;
+    public Set<Kit> getKit() {
+        return kit;
     }
 
-    public void setUser(Set<User> user) {
-        this.user = user;
+    public void setKit(Set<Kit> kit) {
+        this.kit = kit;
     }
 }
