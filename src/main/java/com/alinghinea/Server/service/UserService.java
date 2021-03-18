@@ -92,7 +92,6 @@ public class UserService implements UserDetailsService{
 			user.setLastName("Alin");
 			user.setPhone("0761781921");
 			user.setDeleted(0);
-			user.setKitId(1);
 			user.setEmail("admin@admin.ro");
 			user.setPassword(passwordEncoder.encode("admin"));
 			user.setUserType("admin");
@@ -110,7 +109,6 @@ public class UserService implements UserDetailsService{
 			newUser.setLastName("Alin");
 			newUser.setPhone("0761781921");
 			newUser.setDeleted(0);
-			newUser.setKitId(1);
 			newUser.setEmail("admin@admin.ro");
 			newUser.setPassword("parola");
 			newUser.setUserType("admin");
@@ -127,7 +125,6 @@ public class UserService implements UserDetailsService{
 			user.setFirstName("Alin");
 			user.setLastName("Ghinea");
 			user.setPhone("0761781921");
-			user.setKitId(1);
 			user.setEmail("caregiver@email.com");
 			user.setPassword(passwordEncoder.encode("caregiver"));
 			user.setUserType("Caregiver");

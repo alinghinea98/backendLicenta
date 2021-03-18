@@ -6,7 +6,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 import java.util.Set;
 
 
@@ -55,9 +54,12 @@ public class User extends BaseEntity{
 	@OneToMany(mappedBy="user")
 	private Set<Alert> alerts;
 	
-	@Column(name = "KIT_ID")
-	@NotNull
-	private int kitId;
+//	@Column(name = "KIT_ID")
+//	@NotNull
+//	private int kitId;
+
+	@OneToMany(mappedBy="user")
+	private Set<Kit> kitId;
 
 	public String getUsername() {
 		return username;
@@ -123,13 +125,13 @@ public class User extends BaseEntity{
 		this.isDeleted = isDeleted;
 	}
 
-	public int getKitId() {
-		return kitId;
-	}
-
-	public void setKitId(int kitId) {
-		this.kitId = kitId;
-	}
+//	public Set<Kit> getKitId() {
+//		return kitId;
+//	}
+//
+//	public void setKitId(Kit kitId) {
+//		this.kitId = kitId;
+//	}
 
 	public String getEnduserPin() {
 		return enduserPin;

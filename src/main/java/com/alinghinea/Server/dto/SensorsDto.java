@@ -1,9 +1,9 @@
 package com.alinghinea.Server.dto;
 
 
-import javax.validation.constraints.Size;
-
 import com.alinghinea.Server.entities.User;
+
+import javax.validation.constraints.Size;
 
 public class SensorsDto extends BaseDto{
 
@@ -20,6 +20,9 @@ public class SensorsDto extends BaseDto{
 	
 	@Size(min = 0, max = 255)
 	private String longitude;
+
+	@Size(min = 0, max = 255)
+	private String proximity;
 	
 	public User getUser() {
 		return user;
@@ -61,6 +64,5 @@ public class SensorsDto extends BaseDto{
 		this.proximity = proximity;
 	}
 
-	private String proximity;
 
 }
