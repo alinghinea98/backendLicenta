@@ -44,7 +44,7 @@ public class UserDto extends BaseDto {
 	private boolean isDeleted;
 
 	@NotNull
-	private int kit;
+	private Kit kit;
 
 	public String getUsername() {
 		return username;
