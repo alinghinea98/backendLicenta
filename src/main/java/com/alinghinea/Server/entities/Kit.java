@@ -7,9 +7,8 @@ import javax.persistence.*;
 public class Kit extends BaseEntity {
     private static final long serialVersionUID = 1L;
 
-    @Transient
     @ManyToOne
-    @JoinTable(name="utilizatori", joinColumns =  @JoinColumn(name="user_id", referencedColumnName="user_id"))
+    @JoinTable(name="utilizatori")
 //    @JoinColumn(name="user_id", referencedColumnName = "id")
     private User user; // maybe put User user
 
