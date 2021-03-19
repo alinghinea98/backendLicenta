@@ -39,7 +39,7 @@ public class User extends BaseEntity{
 	@Length(min = 0, max = 32)
 	private String phone;
 
-	@Column(name = "GENDER", nullable = false, length = 64)
+	@Column(name = "GENDER", nullable = true, length = 64)
 	@Length(min = 0, max = 32)
 	private String gender;
 	
@@ -59,8 +59,7 @@ public class User extends BaseEntity{
 	private Set<Alert> alerts;
 
 	@OneToMany(mappedBy="user")
-	@Column(name = "KIT_ID", nullable = true)
-	private Set<Kit> kitId;
+	private Set<Kit> kit;
 
 	public String getGender() {
 		return gender;
