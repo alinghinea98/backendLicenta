@@ -37,6 +37,18 @@ public class UserDto extends BaseDto {
 
 	@Size(min = 0, max = 64)
 	private String enduserPin;
+	
+	@Size(min = 0, max = 64)
+	private String gender;
+
+	private boolean isDeleted;
+
+	@NotNull
+	private int kit;
+
+	public String getUsername() {
+		return username;
+	}
 
 	public String getGender() {
 		return gender;
@@ -44,18 +56,6 @@ public class UserDto extends BaseDto {
 
 	public void setGender(String gender) {
 		this.gender = gender;
-	}
-
-	@Size(min = 0, max = 64)
-	private String gender;
-
-	private boolean isDeleted;
-
-	@NotNull
-	private int kitId;
-
-	public String getUsername() {
-		return username;
 	}
 
 	public void setUsername(String username) {
@@ -110,12 +110,12 @@ public class UserDto extends BaseDto {
 		this.isDeleted = isDeleted;
 	}
 
-	public int getKitId() {
-		return kitId;
+	public int getKit() {
+		return kit;
 	}
 
-	public void setKitId(int kitId) {
-		this.kitId = kitId;
+	public void setKit(int kit) {
+		this.kit = kit;
 	}
 
 	public String getUserType() {
