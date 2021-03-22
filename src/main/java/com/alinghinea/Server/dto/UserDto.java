@@ -1,6 +1,9 @@
 package com.alinghinea.Server.dto;
 
+import com.alinghinea.Server.entities.Kit;
+import com.alinghinea.Server.transformer.UserTransformer;
 import com.alinghinea.Server.validation.UserValidation;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
@@ -10,6 +13,9 @@ import javax.validation.constraints.Size;
 public class UserDto extends BaseDto {
 
 	private static final long serialVersionUID = 1L;
+
+	@Autowired
+	private UserTransformer transformer;
 
 	@NotNull
 	@Size(min = 0, max = 64)
@@ -44,7 +50,7 @@ public class UserDto extends BaseDto {
 	private boolean isDeleted;
 
 	@NotNull
-	private int kit;
+	private Kit kit;
 
 	public String getUsername() {
 		return username;
@@ -110,12 +116,19 @@ public class UserDto extends BaseDto {
 		this.isDeleted = isDeleted;
 	}
 
-	public int getKit() {
+	public Kit getKit() {
 		return kit;
 	}
 
-	public void setKit(int kit) {
-		this.kit = kit;
+	public void setKit(Kit kit) {
+		if (kit == null) {
+			if (this.kit != null) {
+				this.kit.setUser(null);
+			} else {
+				kit.setUser(transformer.toEntity(this));
+			}
+			this.kit = kit;
+		}
 	}
 
 	public String getUserType() {
