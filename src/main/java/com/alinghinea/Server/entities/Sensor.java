@@ -20,7 +20,7 @@ public class Sensor extends BaseEntity{
     private String value;
 
     @OneToOne(optional = false)
-    @JoinColumn(name = "user_kit", referencedColumnName = "user_kit")
+    @JoinColumn(name = "user_id", referencedColumnName = "kit")
     private Kit kit;
 
     public Kit getKit() {
