@@ -136,6 +136,7 @@ public class User extends BaseEntity{
 	}
 
 	public void setKit(Kit kit) {
+		kit.setUser(User.this);
 		this.kit = kit;
 	}
 
