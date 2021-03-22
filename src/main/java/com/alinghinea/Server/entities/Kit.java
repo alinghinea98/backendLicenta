@@ -23,6 +23,17 @@ public class Kit extends BaseEntity {
     @Column(name = "sensor_type_4", length = 128)
     private String sensorType4;
 
+    @OneToOne(mappedBy = "kit")
+    private Sensor sensor;
+
+    public Sensor getSensor() {
+        return sensor;
+    }
+
+    public void setSensor(Sensor sensor) {
+        this.sensor = sensor;
+    }
+
     public String getSensorType1() {
         return sensorType1;
     }
