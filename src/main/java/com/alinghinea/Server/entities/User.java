@@ -2,10 +2,7 @@ package com.alinghinea.Server.entities;
 
 import org.hibernate.validator.constraints.Length;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Set;
 
 
@@ -58,8 +55,8 @@ public class User extends BaseEntity{
 	@OneToMany(mappedBy="user")
 	private Set<Alert> alerts;
 
-	@OneToMany(mappedBy="user")
-	private Set<Kit> kit;
+	@OneToOne(mappedBy="user")
+	private Kit kit;
 
 	public String getGender() {
 		return gender;
@@ -133,13 +130,13 @@ public class User extends BaseEntity{
 		this.isDeleted = isDeleted;
 	}
 
-//	public Set<Kit> getKitId() {
-//		return kitId;
-//	}
-//
-//	public void setKitId(Kit kitId) {
-//		this.kitId = kitId;
-//	}
+	public Kit getKit() {
+		return kit;
+	}
+
+	public void setKit(Kit kit) {
+		this.kit = kit;
+	}
 
 	public String getEnduserPin() {
 		return enduserPin;
