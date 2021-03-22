@@ -55,8 +55,7 @@ public class User extends BaseEntity{
 	@OneToMany(mappedBy="user")
 	private Set<Alert> alerts;
 
-	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL,
-			fetch = FetchType.LAZY, optional = false)
+	@OneToOne(mappedBy = "user")
 	private Kit kit;
 
 	public String getGender() {
@@ -136,15 +135,7 @@ public class User extends BaseEntity{
 	}
 
 	public void setKit(Kit kit) {
-		if (kit == null) {
-			if (this.kit != null) {
-				this.kit.setUser(null);
-			} else {
-				assert false;
-				kit.setUser(this);
-			}
-			this.kit = kit;
-		}
+		this.kit = kit;
 	}
 
 	public String getEnduserPin() {
