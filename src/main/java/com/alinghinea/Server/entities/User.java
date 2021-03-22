@@ -55,7 +55,8 @@ public class User extends BaseEntity{
 	@OneToMany(mappedBy="user")
 	private Set<Alert> alerts;
 
-	@OneToOne(mappedBy="user")
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name="kit_id", referencedColumnName = "id")
 	private Kit kit;
 
 	public String getGender() {

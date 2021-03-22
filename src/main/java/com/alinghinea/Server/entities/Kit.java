@@ -1,14 +1,16 @@
 package com.alinghinea.Server.entities;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "kit")
 public class Kit extends BaseEntity {
     private static final long serialVersionUID = 1L;
 
-    @OneToOne
-    @JoinColumn(name="user_id", referencedColumnName = "id")
+    @OneToOne(mappedBy = "kit")
     private User user; // maybe put User user
 
     @Column(name = "sensor_type_1",length = 128)
