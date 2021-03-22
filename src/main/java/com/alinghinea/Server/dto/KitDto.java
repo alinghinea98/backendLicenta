@@ -1,7 +1,5 @@
 package com.alinghinea.Server.dto;
 
-import com.alinghinea.Server.entities.User;
-
 import javax.validation.constraints.Size;
 
 public class KitDto extends BaseDto {
@@ -19,8 +17,8 @@ public class KitDto extends BaseDto {
     @Size(min = 0, max = 255)
     private String sensorType4;
 
-    @Size(min = 0, max = 255)
-    private User user;
+//    @Size(min = 0, max = 255)
+//    private User user;
 
 
     public String getSensorType1() {
@@ -55,11 +53,11 @@ public class KitDto extends BaseDto {
         this.sensorType4 = sensorType4;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
+//    public User getUser() {
+//        return user;
+//    }
+//
+//    public void setUser(User user) {
+//        this.user = user;
+//    }
 }
