@@ -7,9 +7,8 @@ import javax.persistence.*;
 public class Kit extends BaseEntity {
     private static final long serialVersionUID = 1L;
 
-    @MapsId("id")
-    @OneToOne(mappedBy = "kit")
-    @JoinColumn(name="kit_id")
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
     private User user; // maybe put User user
 
     @Column(name = "sensor_type_1",length = 128)
