@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class Kit extends BaseEntity {
     private static final long serialVersionUID = 1L;
 
-    @MapsId
+    @MapsId("id")
     @OneToOne(mappedBy = "kit")
     @JoinColumn(name="kit_id")
     private User user; // maybe put User user
