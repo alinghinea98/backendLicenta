@@ -135,7 +135,7 @@ public class User extends BaseEntity{
 	}
 
 	public void setKit(Kit kit) {
-		this.kit = kit;
+		this.kit = kit.returnKit();
 	}
 
 	public String getEnduserPin() {

@@ -82,6 +82,7 @@ public class UserService implements UserDetailsService{
 		saveUser(user);
 	}
 	
+	
 	@PostConstruct
 	private void createAdmin() {
 		String username = "admin";

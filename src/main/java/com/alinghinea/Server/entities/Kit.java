@@ -1,15 +1,17 @@
 package com.alinghinea.Server.entities;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "kit")
 public class Kit extends BaseEntity {
     private static final long serialVersionUID = 1L;
 
-    @OneToOne(optional = false)
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private User user; // maybe put User user
+//    @OneToOne(optional = false)
+//    @JoinColumn(name = "user_id", referencedColumnName = "id")
+//    private User user; // maybe put User user
 
     @Column(name = "sensor_type_1",length = 128)
     private String sensorType1;
@@ -33,6 +35,20 @@ public class Kit extends BaseEntity {
 //    public void setSensor(Sensor sensor) {
 //        this.sensor = sensor;
 //    }
+
+    public Kit(User user, String sensorType1, String sensorType2, String sensorType3, String sensorType4) {
+//        this.user = user;
+        this.sensorType1 = sensorType1;
+        this.sensorType2 = sensorType2;
+        this.sensorType3 = sensorType3;
+        this.sensorType4 = sensorType4;
+    }
+
+    public Kit returnKit() {
+        return this;
+    }
+    public Kit() {
+    }
 
     public String getSensorType1() {
         return sensorType1;
@@ -66,11 +82,11 @@ public class Kit extends BaseEntity {
         this.sensorType4 = sensorType4;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
+//    public User getUser() {
+//        return user;
+//    }
+//
+//    public void setUser(User user) {
+//        this.user = user;
+//    }
 }
