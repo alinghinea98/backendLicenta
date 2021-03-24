@@ -1,6 +1,8 @@
 package com.alinghinea.Server.entities;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "kit")
@@ -12,8 +14,6 @@ public class Kit extends BaseEntity {
 //    @JoinColumn(name = "user_id", referencedColumnName = "id")
 //    private User user; // maybe put User user
 
-    @OneToOne(mappedBy = "kit", cascade = CascadeType.PERSIST)
-    private User user;
 
     @Column(name = "sensor_type_1",length = 128)
     private String sensorType1;
@@ -84,11 +84,11 @@ public class Kit extends BaseEntity {
         this.sensorType4 = sensorType4;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
+//    public int getUser() {
+//        return user;
+//    }
+//
+//    public void setUser(User user) {
+//        this.user = user;
+//    }
 }
