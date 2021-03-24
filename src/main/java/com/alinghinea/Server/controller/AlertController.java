@@ -28,7 +28,7 @@ public class AlertController {
         return alertTransformer.toDto(alertService.createAlert(alertTransformer.toEntity(alertDto)));
     }
 
-    @PostMapping(consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/update",consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.ACCEPTED)
     public @ResponseBody AlertDto saveAlert(AlertDto alertDto) {
         return alertTransformer.toDto(alertService.createAlert(alertTransformer.toEntity(alertDto)));
