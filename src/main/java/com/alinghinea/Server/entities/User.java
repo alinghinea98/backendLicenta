@@ -59,8 +59,8 @@ public class User extends BaseEntity{
 //	@OneToOne(mappedBy = "user")
 //	private Kit kit;
 
-	@OneToOne
-	@JoinColumn(name="kit_id",  referencedColumnName = "id")
+	@OneToOne(cascade = CascadeType.ALL)
+	@PrimaryKeyJoinColumn
 	private Kit kit;
 
 	public String getGender() {
