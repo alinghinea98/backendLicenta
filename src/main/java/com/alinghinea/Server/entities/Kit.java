@@ -12,7 +12,7 @@ public class Kit extends BaseEntity {
 //    @JoinColumn(name = "user_id", referencedColumnName = "id")
 //    private User user; // maybe put User user
 
-    @OneToOne(mappedBy = "kit", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "kit", cascade = CascadeType.PERSIST)
     private User user;
 
     @Column(name = "sensor_type_1",length = 128)
