@@ -14,4 +14,5 @@ public interface AlertRepository extends JpaRepository<Alert, Long> {
     @Query(value = "SELECT * FROM 16Ec3VcgYd.alert WHERE user_id = :id",
             nativeQuery = true)
     List<Alert> getByUser(long id);
+
 }

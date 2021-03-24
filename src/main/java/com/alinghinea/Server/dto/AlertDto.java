@@ -20,6 +20,16 @@ public class AlertDto extends BaseDto{
     @Size(min = 0, max = 255)
     private String sensorValue;
 
+    private boolean seen;
+
+    public boolean isSeen() {
+        return seen;
+    }
+
+    public void setSeen(boolean seen) {
+        this.seen = seen;
+    }
+
     public User getUser() {
         return user;
     }

@@ -19,6 +19,10 @@ public class AlertService {
         return this.alertRepository.save(alert);
     }
 
+    public Alert saveAlert(Alert alert) {
+        return this.alertRepository.save(alert);
+    }
+
     public Alert getById(long id) {
         return this.alertRepository.getOne(id);
     }
@@ -26,5 +30,7 @@ public class AlertService {
     public List<Alert> getAlertByUser(long id) {
         return this.alertRepository.getByUser(id);
     }
+
+
 
 }

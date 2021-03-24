@@ -28,6 +28,12 @@ public class AlertController {
         return alertTransformer.toDto(alertService.createAlert(alertTransformer.toEntity(alertDto)));
     }
 
+    @PostMapping(consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public @ResponseBody AlertDto saveAlert(AlertDto alertDto) {
+        return alertTransformer.toDto(alertService.createAlert(alertTransformer.toEntity(alertDto)));
+    }
+
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public AlertDto getAlerts(@RequestParam("id") long id) {
         return alertTransformer.toDto(alertService.getById(id));

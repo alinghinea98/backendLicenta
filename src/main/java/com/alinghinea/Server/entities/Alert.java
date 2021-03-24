@@ -21,6 +21,9 @@ public class Alert extends BaseEntity{
     @Column(name = "SENSOR_VALUE")
     private String sensorValue;
 
+    @Column(name = "SEEN")
+    private boolean seen;
+
     public Alert() {
     }
 
@@ -29,6 +32,14 @@ public class Alert extends BaseEntity{
         this.sensorType = sensorType;
         this.description = description;
         this.sensorValue = sensorValue;
+    }
+
+    public boolean isSeen() {
+        return seen;
+    }
+
+    public void setSeen(boolean seen) {
+        this.seen = seen;
     }
 
     public User getUser() {
