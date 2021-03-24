@@ -40,7 +40,7 @@ public class AlertController {
         for (int i = 0; i < alert.size(); i++) {
             alertDto.add(alertTransformer.toDto(alert.get(i)));
         }
-        return (AlertDto[]) alertDto.toArray();
+        return alertDto.toArray(new AlertDto[0]);
     }
 
 }
