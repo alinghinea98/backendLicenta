@@ -59,8 +59,7 @@ public class User extends BaseEntity{
 //	@OneToOne(mappedBy = "user")
 //	private Kit kit;
 
-	@OneToOne
-	@MapsId
+	@OneToOne(fetch =  FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "user")
 	private Kit kit;
 
 	public String getGender() {

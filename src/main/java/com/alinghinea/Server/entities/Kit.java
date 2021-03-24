@@ -1,8 +1,6 @@
 package com.alinghinea.Server.entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "kit")
@@ -14,6 +12,9 @@ public class Kit extends BaseEntity {
 //    @JoinColumn(name = "user_id", referencedColumnName = "id")
 //    private User user; // maybe put User user
 
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="user_id")
+    private User user;
 
     @Column(name = "sensor_type_1",length = 128)
     private String sensorType1;
