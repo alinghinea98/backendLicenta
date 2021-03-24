@@ -22,7 +22,7 @@ public class Alert extends BaseEntity{
     private String sensorValue;
 
     @Column(name = "SEEN")
-    private boolean seen;
+    private boolean seen = false;
 
     public Alert() {
     }
