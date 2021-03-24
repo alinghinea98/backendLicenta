@@ -10,7 +10,6 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @RestController
@@ -35,14 +34,13 @@ public class AlertController {
     }
 
     @GetMapping(value = "/user",produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<List<AlertDto>> getAlertsByUser(@RequestParam("id") long id) {
+    public AlertDto[] getAlertsByUser(@RequestParam("id") long id) {
         List<Alert> alert = alertService.getAlertByUser(id);
         List<AlertDto> alertDto = new ArrayList<AlertDto>();
         for (int i = 0; i < alert.size(); i++) {
             alertDto.add(alertTransformer.toDto(alert.get(i)));
         }
-//        return alertDto.toArray(new AlertDto[0]);
-        return Arrays.asList(alertDto);
+        return alertDto.toArray(new AlertDto[0]);
     }
 
 }
