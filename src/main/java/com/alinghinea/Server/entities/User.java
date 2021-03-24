@@ -60,7 +60,7 @@ public class User extends BaseEntity{
 //	private Kit kit;
 
 	@OneToOne
-	@JoinColumn(name="KIT_ID")
+	@JoinColumn(name="kit_id",  referencedColumnName = "id")
 	private Kit kit;
 
 	public String getGender() {
