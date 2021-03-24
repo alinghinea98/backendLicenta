@@ -2,6 +2,7 @@ package com.alinghinea.Server.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -9,9 +10,13 @@ import javax.persistence.Table;
 public class Kit extends BaseEntity {
     private static final long serialVersionUID = 1L;
 
+    //works like below
 //    @OneToOne(optional = false)
 //    @JoinColumn(name = "user_id", referencedColumnName = "id")
 //    private User user; // maybe put User user
+
+    @OneToOne(mappedBy = "user")
+    private User user;
 
     @Column(name = "sensor_type_1",length = 128)
     private String sensorType1;
@@ -82,11 +87,11 @@ public class Kit extends BaseEntity {
         this.sensorType4 = sensorType4;
     }
 
-//    public User getUser() {
-//        return user;
-//    }
-//
-//    public void setUser(User user) {
-//        this.user = user;
-//    }
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }
