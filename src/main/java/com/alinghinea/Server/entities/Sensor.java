@@ -2,7 +2,6 @@ package com.alinghinea.Server.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -22,8 +21,8 @@ public class Sensor extends BaseEntity{
     @Column(name = "sensor_value",length = 128)
     private String value;
 
-    @ManyToOne
-    private Sensors sensors;
+//    @ManyToOne
+//    private Sensors sensors;
 
     public String getName() {
         return name;
