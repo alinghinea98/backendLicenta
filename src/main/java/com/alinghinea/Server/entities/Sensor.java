@@ -1,8 +1,7 @@
 package com.alinghinea.Server.entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "sensor")
@@ -21,17 +20,16 @@ public class Sensor extends BaseEntity{
     @Column(name = "sensor_value",length = 128)
     private String value;
 
-//    @OneToOne(optional = false)
-//    @JoinColumn(name = "user_id", referencedColumnName = "id")
-//    private Kit kit;
-//
-//    public Kit getKit() {
-//        return kit;
-//    }
-//
-//    public void setKit(Kit kit) {
-//        this.kit = kit;
-//    }
+    @OneToMany(fetch =  FetchType.LAZY, cascade = CascadeType.MERGE, mappedBy = "sensor")
+    private Set<Sensors> sensors;
+
+    public Set<Sensors> getSensors() {
+        return sensors;
+    }
+
+    public void setSensors(Set<Sensors> sensors) {
+        this.sensors = sensors;
+    }
 
     public String getName() {
         return name;

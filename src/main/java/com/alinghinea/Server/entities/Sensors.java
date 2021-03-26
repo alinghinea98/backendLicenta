@@ -9,70 +9,41 @@ public class Sensors extends BaseEntity {
 	private static final long serialVersionUID = 1L;
 	
 	@ManyToOne
-    @JoinColumn(name="user_id", nullable=true)
-    private User user;
+    @JoinColumn(name="sensor_id", nullable=true)
+    private Sensor sensor;
 	
-	@Column(name="LIGHT")
-	private String light;
-	
-	@Column(name="LATITUDE")
-	private String latitude;
+	@Column(name="SENSOR_VALUE")
+	private String sensorValue;
 
-	@Column(name="LONGITUDE")
-	private String longitude;
-	
-	@Column(name="PROXIMITY")
-	private String proximity;
-
-	public Sensors(User user, String light, String latitude, String longitude, String proximity) {
-		super();
-		this.user = user;
-		this.light = light;
-		this.latitude = latitude;
-		this.longitude = longitude;
-		this.proximity = proximity;
-	}
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="kit_id")
+	private Sensors sensors;
 	
 	public Sensors() {
 	}
 
-	public User getUser() {
-		return user;
+	public Sensors(Sensor sensor, String sensorValue) {
+		this.sensor = sensor;
+		this.sensorValue = sensorValue;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public Sensor getSensor() {
+		return sensor;
 	}
 
-	public String getLight() {
-		return light;
+	public void setSensor(Sensor sensor) {
+		this.sensor = sensor;
 	}
 
-	public void setLight(String light) {
-		this.light = light;
+	public String getSensorValue() {
+		return sensorValue;
 	}
 
-	public String getLatitude() {
-		return latitude;
+	public void setSensorValue(String sensorValue) {
+		this.sensorValue = sensorValue;
 	}
 
-	public void setLatitude(String latitude) {
-		this.latitude = latitude;
-	}
-
-	public String getLongitude() {
-		return longitude;
-	}
-
-	public void setLongitude(String longitude) {
-		this.longitude = longitude;
-	}
-
-	public String getProximity() {
-		return proximity;
-	}
-
-	public void setProximity(String proximity) {
-		this.proximity = proximity;
+	public Sensors returnSensors(){
+		return this;
 	}
 }
