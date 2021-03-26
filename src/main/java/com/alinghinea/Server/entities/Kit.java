@@ -98,7 +98,7 @@ public class Kit extends BaseEntity {
     private User user;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="kit_id", referencedColumnName = "sensors_id")
+    @JoinColumn(name="kit_id", referencedColumnName = "id")
     private Sensors sensors;
 
     public Kit(User user, Sensors sensors) {
