@@ -9,7 +9,7 @@ public class Sensors extends BaseEntity {
 	
 	private static final long serialVersionUID = 1L;
 	
-	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.MERGE, mappedBy = "sensors")
+	@OneToMany(mappedBy = "sensors")
     private Set<Sensor> sensor;
 	
 	@Column(name="SENSOR_VALUE")
