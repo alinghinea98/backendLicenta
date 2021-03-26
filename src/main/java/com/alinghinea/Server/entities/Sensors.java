@@ -1,49 +1,46 @@
 package com.alinghinea.Server.entities;
 
-import javax.persistence.*;
-import java.util.Set;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import java.util.List;
 
 @Entity
 @Table(name = "sensors")
 public class Sensors extends BaseEntity {
 	
 	private static final long serialVersionUID = 1L;
-	
-//	@OneToMany(mappedBy = "sensors")
-//    private Set<Sensor> sensor;
-	
-	@Column(name="SENSOR_VALUE")
-	private String sensorValue;
 
-	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="kit_id")
-	private Sensors sensors;
-	
+//	@Column(name="SENSOR")
+	@OneToMany(mappedBy = "sensors")
+	private List<Sensor> sensorList;
+
+//	@OneToOne(fetch = FetchType.LAZY)
+//	@JoinColumn(name="kit_id")
+//	private Sensors sensors;
+
+	public Sensors(List<Sensor> sensorList, Sensors sensors) {
+		this.sensorList = sensorList;
+//		this.sensors = sensors;
+	}
+
 	public Sensors() {
 	}
 
-	public Sensors(Set<Sensor> sensor, String sensorValue) {
-//		this.sensor = sensor;
-		this.sensorValue = sensorValue;
+	public List<Sensor> getSensorList() {
+		return sensorList;
 	}
 
-//	public Set<Sensor> getSensor() {
-//		return sensor;
+	public void setSensorList(List<Sensor> sensorList) {
+		this.sensorList = sensorList;
+	}
+
+
+//	public Sensors getSensors() {
+//		return sensors;
 //	}
 //
-//	public void setSensor(Set<Sensor> sensor) {
-//		this.sensor = sensor;
+//	public void setSensors(Sensors sensors) {
+//		this.sensors = sensors;
 //	}
-
-	public String getSensorValue() {
-		return sensorValue;
-	}
-
-	public void setSensorValue(String sensorValue) {
-		this.sensorValue = sensorValue;
-	}
-
-	public Sensors returnSensors(){
-		return this;
-	}
 }

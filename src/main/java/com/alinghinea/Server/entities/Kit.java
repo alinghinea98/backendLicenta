@@ -97,7 +97,6 @@ public class Kit extends BaseEntity {
     @JoinColumn(name="user_id")
     private User user;
 
-    @OneToOne(fetch =  FetchType.LAZY, cascade = CascadeType.MERGE, mappedBy = "kit", optional = true)
     private Sensors sensors;
 
     public Kit(User user, Sensors sensors) {
@@ -120,12 +119,14 @@ public class Kit extends BaseEntity {
         this.user = user;
     }
 
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "SENSORS_ID")
     public Sensors getSensors() {
         return sensors;
     }
 
     public void setSensors(Sensors sensors) {
-        this.sensors = sensors.returnSensors();
+        this.sensors = sensors;
     }
 
 
