@@ -93,16 +93,16 @@ public class Kit extends BaseEntity {
 //        this.user = user;
 //    }
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="user_id")
-    private User user;
+//    @OneToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name="user_id")
+//    private User user;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="kit_id", referencedColumnName = "id")
     private Sensors sensors;
 
-    public Kit(User user, Sensors sensors) {
-        this.user = user;
+    public Kit( Sensors sensors) {
+//        this.user = user;
         this.sensors = sensors;
     }
 
@@ -113,13 +113,13 @@ public class Kit extends BaseEntity {
         return this;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
+//    public User getUser() {
+//        return user;
+//    }
+//
+//    public void setUser(User user) {
+//        this.user = user;
+//    }
 
     public Sensors getSensors() {
         return sensors;

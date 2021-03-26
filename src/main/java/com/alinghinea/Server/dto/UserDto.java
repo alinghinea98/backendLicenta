@@ -42,7 +42,7 @@ public class UserDto extends BaseDto {
 	@Size(min = 0, max = 64)
 	private String gender;
 
-	private boolean isDeleted;
+	private boolean isDeleted = false;
 
 	@NotNull
 	private Kit kit;
