@@ -9,8 +9,8 @@ public class Sensors extends BaseEntity {
 	
 	private static final long serialVersionUID = 1L;
 	
-	@OneToMany(mappedBy = "sensors")
-    private Set<Sensor> sensor;
+//	@OneToMany(mappedBy = "sensors")
+//    private Set<Sensor> sensor;
 	
 	@Column(name="SENSOR_VALUE")
 	private String sensorValue;
@@ -23,17 +23,17 @@ public class Sensors extends BaseEntity {
 	}
 
 	public Sensors(Set<Sensor> sensor, String sensorValue) {
-		this.sensor = sensor;
+//		this.sensor = sensor;
 		this.sensorValue = sensorValue;
 	}
 
-	public Set<Sensor> getSensor() {
-		return sensor;
-	}
-
-	public void setSensor(Set<Sensor> sensor) {
-		this.sensor = sensor;
-	}
+//	public Set<Sensor> getSensor() {
+//		return sensor;
+//	}
+//
+//	public void setSensor(Set<Sensor> sensor) {
+//		this.sensor = sensor;
+//	}
 
 	public String getSensorValue() {
 		return sensorValue;

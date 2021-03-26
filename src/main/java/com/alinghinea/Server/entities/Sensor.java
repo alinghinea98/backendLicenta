@@ -1,6 +1,8 @@
 package com.alinghinea.Server.entities;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "sensor")
@@ -19,17 +21,17 @@ public class Sensor extends BaseEntity{
     @Column(name = "sensor_value",length = 128)
     private String value;
 
-    @ManyToOne(fetch =  FetchType.LAZY)
-    @JoinColumn(name = "sensors_id")
-    private Sensors sensors;
+//    @ManyToOne(fetch =  FetchType.LAZY)
+//    @JoinColumn(name = "sensors_id")
+//    private Sensors sensors;
 
-    public Sensors getSensors() {
-        return sensors;
-    }
-
-    public void setSensors(Sensors sensors) {
-        this.sensors = sensors;
-    }
+//    public Sensors getSensors() {
+//        return sensors;
+//    }
+//
+//    public void setSensors(Sensors sensors) {
+//        this.sensors = sensors;
+//    }
 
     public String getName() {
         return name;

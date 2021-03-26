@@ -50,9 +50,6 @@ public class User extends BaseEntity{
 	private String enduserPin;
 
 	@OneToMany(mappedBy="user")
-	private Set<Sensors> sensors;
-
-	@OneToMany(mappedBy="user")
 	private Set<Alert> alerts;
 
 	//works like below
