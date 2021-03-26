@@ -97,7 +97,7 @@ public class Kit extends BaseEntity {
     @JoinColumn(name="user_id")
     private User user;
 
-    @OneToOne(fetch =  FetchType.LAZY, cascade = CascadeType.MERGE, mappedBy = "user", optional = true)
+    @OneToOne(fetch =  FetchType.LAZY, cascade = CascadeType.MERGE, mappedBy = "kit", optional = true)
     private Sensors sensors;
 
     public Kit(User user, Sensors sensors) {
