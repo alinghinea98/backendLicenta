@@ -1,6 +1,10 @@
 package com.alinghinea.Server.entities;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import java.util.List;
 
 @Entity
 @Table(name = "sensors")
@@ -41,33 +45,22 @@ public class Sensors extends BaseEntity {
 //		this.sensors = sensors;
 //	}
 
-	@OneToOne(fetch =  FetchType.LAZY, cascade = CascadeType.MERGE, mappedBy = "sensors", optional = true)
-	private Kit kit;
-
 	@Column(name="SENSOR")
-	private Sensor sensorList;
+	@OneToMany(mappedBy = "sensors")
+	private List<Sensor> sensorList;
 
-	public Sensors(Kit kit, Sensor sensorList) {
-		this.kit = kit;
+	public Sensors(List<Sensor> sensorList) {
 		this.sensorList = sensorList;
 	}
 
 	public Sensors() {
 	}
 
-	public Kit getKit() {
-		return kit;
-	}
-
-	public void setKit(Kit kit) {
-		this.kit = kit;
-	}
-
-	public Sensor getSensorList() {
+	public List<Sensor> getSensorList() {
 		return sensorList;
 	}
 
-	public void setSensorList(Sensor sensorList) {
+	public void setSensorList(List<Sensor> sensorList) {
 		this.sensorList = sensorList;
 	}
 }
