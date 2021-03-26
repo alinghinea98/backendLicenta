@@ -1,7 +1,7 @@
 package com.alinghinea.Server.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "sensors")
@@ -42,22 +42,22 @@ public class Sensors extends BaseEntity {
 //		this.sensors = sensors;
 //	}
 
-//	@Column(name="SENSOR")
-//	@OneToMany(mappedBy = "sensors")
-//	private List<Sensor> sensorList;
-//
-//	public Sensors(List<Sensor> sensorList) {
-//		this.sensorList = sensorList;
-//	}
-//
-//	public Sensors() {
-//	}
-//
-//	public List<Sensor> getSensorList() {
-//		return sensorList;
-//	}
-//
-//	public void setSensorList(List<Sensor> sensorList) {
-//		this.sensorList = sensorList;
-//	}
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name="sensors_id")
+	private List<Sensor> sensorList;
+
+	public Sensors(List<Sensor> sensorList) {
+		this.sensorList = sensorList;
+	}
+
+	public Sensors() {
+	}
+
+	public List<Sensor> getSensorList() {
+		return sensorList;
+	}
+
+	public void setSensorList(List<Sensor> sensorList) {
+		this.sensorList = sensorList;
+	}
 }
