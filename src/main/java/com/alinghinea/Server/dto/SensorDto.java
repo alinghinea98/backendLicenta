@@ -1,7 +1,5 @@
 package com.alinghinea.Server.dto;
 
-import com.alinghinea.Server.entities.Sensor;
-
 import javax.validation.constraints.Size;
 
 public class SensorDto extends BaseDto{
@@ -18,16 +16,6 @@ public class SensorDto extends BaseDto{
 
     @Size(min = 0, max = 255)
     private String value;
-
-    private Sensor sensor;
-
-    public Sensor getSensor() {
-        return sensor;
-    }
-
-    public void setSensor(Sensor sensor) {
-        this.sensor = sensor;
-    }
 
     public String getName() {
         return name;
