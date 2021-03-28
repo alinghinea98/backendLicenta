@@ -1,6 +1,8 @@
 package com.alinghinea.Server.entities;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -55,5 +57,17 @@ public class Sensors extends BaseEntity {
 
 	public Sensors returnSensors() {
 		return this;
+	}
+
+	public Set<Sensor> getSensorSet() {
+		return sensorSet;
+	}
+
+	public void setSensorSet(Set<Sensor> sensorSet) {
+		this.sensorSet = sensorSet;
+	}
+
+	public List<Sensor> getSensorAsList() {
+		return new ArrayList<Sensor>(sensorSet);
 	}
 }

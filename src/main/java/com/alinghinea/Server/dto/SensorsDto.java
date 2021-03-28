@@ -3,6 +3,8 @@ package com.alinghinea.Server.dto;
 
 import com.alinghinea.Server.entities.Sensor;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 public class SensorsDto extends BaseDto{
@@ -17,5 +19,9 @@ public class SensorsDto extends BaseDto{
 
 	public void setSensorList(Set<Sensor> sensorList) {
 		this.sensorList = sensorList;
+	}
+
+	public List<Sensor> getSensorAsList() {
+		return new ArrayList<Sensor>(sensorList);
 	}
 }
