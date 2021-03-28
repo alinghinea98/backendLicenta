@@ -74,11 +74,11 @@ public class UserService implements UserDetailsService{
 	}
 	
 	public void updateUser(User user) {
-		String password = user.getPassword();
-		String savedPassword = userRepository.getById(user.getId()).getPassword();
-		if (!password.equals(savedPassword) && !passwordEncoder.matches(password, savedPassword)) {
-			user.setPassword(passwordEncoder.encode(password));
-		}
+//		String password = user.getPassword();
+//		String savedPassword = userRepository.getById(user.getId()).getPassword();
+//		if (!password.equals(savedPassword) && !passwordEncoder.matches(password, savedPassword)) {
+//			user.setPassword(passwordEncoder.encode(password));
+//		}
 		saveUser(user);
 	}
 	
