@@ -1,7 +1,7 @@
 package com.alinghinea.Server.entities;
 
 import javax.persistence.*;
-import java.util.Set;
+import java.util.List;
 
 @Entity
 @Table(name = "sensors")
@@ -48,7 +48,7 @@ public class Sensors extends BaseEntity {
 	private Kit kit;
 
 	@OneToMany(mappedBy = "sensors")
-	private Set<Sensor> sensorSet;
+	private List<Sensor> sensorSet;
 
 	public Sensors() {
 	}
@@ -57,11 +57,11 @@ public class Sensors extends BaseEntity {
 		return this;
 	}
 
-	public Set<Sensor> getSensorSet() {
+	public List<Sensor> getSensorSet() {
 		return sensorSet;
 	}
 
-	public void setSensorSet(Set<Sensor> sensorSet) {
+	public void setSensorSet(List<Sensor> sensorSet) {
 		this.sensorSet = sensorSet;
 	}
 

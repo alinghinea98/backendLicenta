@@ -3,19 +3,19 @@ package com.alinghinea.Server.dto;
 
 import com.alinghinea.Server.entities.Sensor;
 
-import java.util.Set;
+import java.util.List;
 
 public class SensorsDto extends BaseDto{
 
 	private static final long serialVersionUID = 1L;
 
-	Set<Sensor> sensorList;
+	List<Sensor> sensorList;
 
-	public Set<Sensor> getSensorList() {
+	public List<Sensor> getSensorList() {
 		return sensorList;
 	}
 
-	public void setSensorList(Set<Sensor> sensorList) {
+	public void setSensorList(List<Sensor> sensorList) {
 		this.sensorList = sensorList;
 	}
 
