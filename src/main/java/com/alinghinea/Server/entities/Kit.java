@@ -1,6 +1,9 @@
 package com.alinghinea.Server.entities;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "kit")
@@ -97,13 +100,17 @@ public class Kit extends BaseEntity {
 //    @JoinColumn(name="user_id")
 //    private User user;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="kit_id", referencedColumnName = "id")
-    private Sensors sensors;
+//    @OneToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name="kit_id", insertable = true, updatable = true)
+//    private Sensors sensors;
+
+    @OneToOne(optional = false)
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private User user; // maybe put User user
 
     public Kit( Sensors sensors) {
 //        this.user = user;
-        this.sensors = sensors;
+//        this.sensors = sensors;
     }
 
     public Kit() {
@@ -113,21 +120,13 @@ public class Kit extends BaseEntity {
         return this;
     }
 
-//    public User getUser() {
-//        return user;
+//    public Sensors getSensors() {
+//        return sensors;
 //    }
 //
-//    public void setUser(User user) {
-//        this.user = user;
+//    public void setSensors(Sensors sensors) {
+//        this.sensors = sensors;
 //    }
-
-    public Sensors getSensors() {
-        return sensors;
-    }
-
-    public void setSensors(Sensors sensors) {
-        this.sensors = sensors;
-    }
 
 
 }
