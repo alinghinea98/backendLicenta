@@ -44,7 +44,7 @@ public class Sensors extends BaseEntity {
 
 
 	@OneToOne(optional = false)
-	@JoinColumn(name = "kit_id", referencedColumnName = "kit_id")
+	@JoinColumn(name = "kit_id", referencedColumnName = "sensors_id")
 	private Kit kit;
 
 	@OneToMany(mappedBy = "sensors")
