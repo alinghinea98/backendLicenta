@@ -1,9 +1,7 @@
 package com.alinghinea.Server.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "sensors")
@@ -48,6 +46,9 @@ public class Sensors extends BaseEntity {
 	@OneToOne(optional = false)
 	@JoinColumn(name = "kit_id", referencedColumnName = "id")
 	private Kit kit;
+
+	@OneToMany(mappedBy = "sensors")
+	private Set<Sensor> sensorSet;
 
 	public Sensors() {
 	}
