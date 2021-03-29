@@ -12,7 +12,7 @@ public class KitDto extends BaseDto {
     }
 
     public void setSensors(Sensors sensors) {
-        this.sensors = sensors;
+        this.sensors = sensors.returnSensors();
     }
 
 }
