@@ -34,7 +34,7 @@ public class KitController {
         return kitTransformer.toDto(kitService.getKitId(id));
     }
 
-    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value="/all", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<KitDto> getKits() {
         List<Kit> kits = kitService.getKits();
         List<KitDto> dtos = new ArrayList<KitDto>();

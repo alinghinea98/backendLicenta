@@ -43,7 +43,7 @@ public class SensorsController {
 		return sensorsDto;
 	}
 
-	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value="/all", produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<SensorsDto> getSensorsList() {
 		List<Sensors> sensors = service.getSensorsList();
 		List<SensorsDto> sensorsDto = new ArrayList<SensorsDto>();
