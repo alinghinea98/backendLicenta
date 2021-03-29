@@ -43,7 +43,7 @@ public class Sensors extends BaseEntity {
 //	}
 
 
-	@OneToOne(optional = false)
+	@OneToOne(optional = true)
 	@JoinColumn(name = "kit_id")
 	private Kit kit;
 
