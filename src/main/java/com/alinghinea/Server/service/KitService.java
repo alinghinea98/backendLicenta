@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @Transactional
 public class KitService {
@@ -19,5 +21,9 @@ public class KitService {
 
     public Kit getKitId(long id) {
         return kitRepository.getKitById(id);
+    }
+
+    public List<Kit> getKits() {
+        return kitRepository.findAll();
     }
 }

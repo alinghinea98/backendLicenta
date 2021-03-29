@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 
 @Service
 @Transactional
@@ -16,6 +18,10 @@ public class SensorService {
 
     public Sensor createSensor(Sensor sensor) {
         return sensorRepository.save(sensor);
+    }
+
+    public List<Sensor> getSensors() {
+        return sensorRepository.findAll();
     }
 
     public void deleteSensor(Sensor sensor) {

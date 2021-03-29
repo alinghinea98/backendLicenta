@@ -43,6 +43,13 @@ public class SensorsController {
 		return sensorsDto;
 	}
 
-	// try to make update instead of create method
-	
+	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<SensorsDto> getSensorsList() {
+		List<Sensors> sensors = service.getSensorsList();
+		List<SensorsDto> sensorsDto = new ArrayList<SensorsDto>();
+		for (int i = 0; i < sensors.size(); i++) {
+			sensorsDto.add(transformer.toDto(sensors.get(i)));
+		}
+		return sensorsDto;
+	}
 }
