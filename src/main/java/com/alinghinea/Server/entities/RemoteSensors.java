@@ -38,7 +38,7 @@ public class RemoteSensors extends BaseEntity {
     private String sensorTypeFiveValue;
 
     @OneToOne(optional = false)
-    @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = true)
+    @JoinColumn(name = "user_id")
     private User user; // maybe put User user
 
     public RemoteSensors(String sensorTypeOneName, String sensorTypeOneValue, String sensorTypeTwoName, String sensorTypeTwoValue, String sensorTypeThreeName, String sensorTypeThreeValue, String sensorTypeFourName, String sensorTypeFourValue, String sensorTypeFiveName, String sensorTypeFiveValue) {
