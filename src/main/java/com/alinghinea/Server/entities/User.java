@@ -56,8 +56,8 @@ public class User extends BaseEntity{
 //	@OneToOne(mappedBy = "user")
 //	private Kit kit;
 
-	@OneToOne(fetch =  FetchType.LAZY, cascade = CascadeType.MERGE, mappedBy = "user", optional = true)
-	private Kit kit;
+//	@OneToOne(fetch =  FetchType.LAZY, cascade = CascadeType.MERGE, mappedBy = "user", optional = true)
+//	private Kit kit;
 
 	@OneToOne(fetch =  FetchType.LAZY, cascade = CascadeType.MERGE, mappedBy = "user", optional = true)
 	private RemoteSensors remoteSensors;
@@ -134,13 +134,13 @@ public class User extends BaseEntity{
 		this.isDeleted = isDeleted;
 	}
 
-	public Kit getKit() {
-		return kit;
-	}
-
-	public void setKit(Kit kit) {
-		this.kit = kit.returnKit();
-	}
+//	public Kit getKit() {
+//		return kit;
+//	}
+//
+//	public void setKit(Kit kit) {
+//		this.kit = kit.returnKit();
+//	}
 
 	public RemoteSensors getRemoteSensors() {
 		return remoteSensors;

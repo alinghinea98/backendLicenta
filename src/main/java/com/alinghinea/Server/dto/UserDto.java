@@ -1,6 +1,5 @@
 package com.alinghinea.Server.dto;
 
-import com.alinghinea.Server.entities.Kit;
 import com.alinghinea.Server.validation.UserValidation;
 
 import javax.validation.constraints.Email;
@@ -44,8 +43,7 @@ public class UserDto extends BaseDto {
 
 	private boolean isDeleted = false;
 
-	@NotNull
-	private Kit kit;
+//	private Kit kit;
 
 	public String getUsername() {
 		return username;
@@ -111,13 +109,13 @@ public class UserDto extends BaseDto {
 		this.isDeleted = isDeleted;
 	}
 
-	public Kit getKit() {
-		return kit;
-	}
-
-	public void setKit(Kit kit) {
-		this.kit = kit;
-	}
+//	public Kit getKit() {
+//		return kit;
+//	}
+//
+//	public void setKit(Kit kit) {
+//		this.kit = kit;
+//	}
 
 	public String getUserType() {
 		return userType;
