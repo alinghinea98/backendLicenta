@@ -12,7 +12,7 @@ import java.util.List;
 public class RemoteSensors extends BaseEntity {
     private static final long serialVersionUID = 1L;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "remote", orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "remoteSensors", orphanRemoval = true)
     private List<Sensor> sensors = new ArrayList();
 
     public List<Sensor> getSensors() {

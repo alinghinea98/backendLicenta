@@ -24,4 +24,5 @@ public class RemoteSensorsController {
     RemoteSensorsDto createKit(RemoteSensorsDto remoteSensorsDto) {
         return remoteSensorsTransformer.toDto(remoteSensorsService.createRemoteSensors(remoteSensorsTransformer.toEntity(remoteSensorsDto)));
     }
+
 }
