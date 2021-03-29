@@ -23,17 +23,6 @@ public class Sensor extends BaseEntity{
     @JoinColumn(name = "sensors_id")
     private Sensors sensors;
 
-    @ManyToOne
-    private RemoteSensors remoteSensors;
-
-    public RemoteSensors getRemoteSensors() {
-        return remoteSensors;
-    }
-
-    public void setRemoteSensors(RemoteSensors remoteSensors) {
-        this.remoteSensors = remoteSensors;
-    }
-
     public String getName() {
         return name;
     }
