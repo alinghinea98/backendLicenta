@@ -25,4 +25,8 @@ public class RemoteSensorsController {
         return remoteSensorsTransformer.toDto(remoteSensorsService.createRemoteSensors(remoteSensorsTransformer.toEntity(remoteSensorsDto)));
     }
 
+    @GetMapping(value = "/user",produces = MediaType.APPLICATION_JSON_VALUE)
+    public RemoteSensorsDto getSensorsByUser(@RequestParam("id") long id) {
+        return remoteSensorsTransformer.toDto(remoteSensorsService.getSensorsByUser(id));
+    }
 }

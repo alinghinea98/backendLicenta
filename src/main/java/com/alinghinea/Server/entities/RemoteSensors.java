@@ -55,6 +55,10 @@ public class RemoteSensors extends BaseEntity {
     public RemoteSensors() {
     }
 
+    public RemoteSensors returnRemoteSensors() {
+        return this;
+    }
+
     public String getSensorTypeOneName() {
         return sensorTypeOneName;
     }

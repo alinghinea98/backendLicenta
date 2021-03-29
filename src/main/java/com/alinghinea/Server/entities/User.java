@@ -59,6 +59,9 @@ public class User extends BaseEntity{
 	@OneToOne(fetch =  FetchType.LAZY, cascade = CascadeType.MERGE, mappedBy = "user", optional = true)
 	private Kit kit;
 
+	@OneToOne(fetch =  FetchType.LAZY, cascade = CascadeType.MERGE, mappedBy = "user", optional = true)
+	private RemoteSensors remoteSensors;
+
 	public String getGender() {
 		return gender;
 	}
@@ -137,6 +140,14 @@ public class User extends BaseEntity{
 
 	public void setKit(Kit kit) {
 		this.kit = kit.returnKit();
+	}
+
+	public RemoteSensors getRemoteSensors() {
+		return remoteSensors;
+	}
+
+	public void setRemoteSensors(RemoteSensors remoteSensors) {
+		this.remoteSensors = remoteSensors.returnRemoteSensors();
 	}
 
 	public String getEnduserPin() {

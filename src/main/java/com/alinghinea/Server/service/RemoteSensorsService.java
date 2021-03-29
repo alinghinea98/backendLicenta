@@ -17,4 +17,8 @@ public class RemoteSensorsService {
     public RemoteSensors createRemoteSensors(RemoteSensors remoteSensors) {
         return repository.save(remoteSensors);
     }
+
+    public RemoteSensors getSensorsByUser(long id) {
+        return repository.getByUser(id);
+    }
 }
