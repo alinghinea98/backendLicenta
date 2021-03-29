@@ -19,6 +19,10 @@ public class RemoteSensors extends BaseEntity {
         return sensors;
     }
 
+    public void setSensors(List<Sensor> sensors) {
+        this.sensors = sensors;
+    }
+
     public void addSensor(Sensor sensor) {
         sensors.add(sensor);
         sensor.setRemoteSensors(this);

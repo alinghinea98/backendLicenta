@@ -21,7 +21,7 @@ public class RemoteSensorsController {
     @PostMapping(consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
     public @ResponseBody
-    RemoteSensorsDto createKit(RemoteSensorsDto remoteSensorsDto) {
+    RemoteSensorsDto createRemoteSensors(RemoteSensorsDto remoteSensorsDto) {
         return remoteSensorsTransformer.toDto(remoteSensorsService.createRemoteSensors(remoteSensorsTransformer.toEntity(remoteSensorsDto)));
     }
 
