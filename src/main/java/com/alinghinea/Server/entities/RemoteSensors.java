@@ -7,6 +7,10 @@ import javax.persistence.*;
 public class RemoteSensors extends BaseEntity {
     private static final long serialVersionUID = 1L;
 
+    @ManyToOne
+    @JoinColumn(name="user_id", nullable=true)
+    private User user;
+
     @Column(name = "sensorTypeOneName",length = 128)
     private String sensorTypeOneName;
 
@@ -37,10 +41,6 @@ public class RemoteSensors extends BaseEntity {
     @Column(name = "sensorTypeFiveValue",length = 128)
     private String sensorTypeFiveValue;
 
-    @OneToOne(optional = false)
-    @JoinColumn(name = "user_id")
-    private User user; // maybe put User user
-
     public RemoteSensors(String sensorTypeOneName, String sensorTypeOneValue, String sensorTypeTwoName, String sensorTypeTwoValue, String sensorTypeThreeName, String sensorTypeThreeValue, String sensorTypeFourName, String sensorTypeFourValue, String sensorTypeFiveName, String sensorTypeFiveValue) {
         this.sensorTypeOneName = sensorTypeOneName;
         this.sensorTypeOneValue = sensorTypeOneValue;
@@ -55,10 +55,6 @@ public class RemoteSensors extends BaseEntity {
     }
 
     public RemoteSensors() {
-    }
-
-    public RemoteSensors returnRemoteSensors() {
-        return this;
     }
 
     public String getSensorTypeOneName() {

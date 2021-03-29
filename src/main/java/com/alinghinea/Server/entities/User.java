@@ -2,7 +2,10 @@ package com.alinghinea.Server.entities;
 
 import org.hibernate.validator.constraints.Length;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import java.util.Set;
 
 
@@ -59,8 +62,8 @@ public class User extends BaseEntity{
 //	@OneToOne(fetch =  FetchType.LAZY, cascade = CascadeType.MERGE, mappedBy = "user", optional = true)
 //	private Kit kit;
 
-	@OneToOne(fetch =  FetchType.LAZY, cascade = CascadeType.MERGE, mappedBy = "user", optional = true)
-	private RemoteSensors remoteSensors;
+	@OneToMany(mappedBy = "user")
+	private Set<RemoteSensors> remoteSensors;
 
 	public String getGender() {
 		return gender;
@@ -141,15 +144,6 @@ public class User extends BaseEntity{
 //	public void setKit(Kit kit) {
 //		this.kit = kit.returnKit();
 //	}
-
-	public RemoteSensors getRemoteSensors() {
-		return remoteSensors;
-	}
-
-	public void setRemoteSensors(RemoteSensors remoteSensors) {
-		this.remoteSensors = remoteSensors.returnRemoteSensors();
-	}
-
 	public String getEnduserPin() {
 		return enduserPin;
 	}
