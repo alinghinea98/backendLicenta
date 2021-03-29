@@ -1,5 +1,7 @@
 package com.alinghinea.Server.dto;
 
+import com.alinghinea.Server.entities.User;
+
 import javax.validation.constraints.Size;
 
 public class RemoteSensorsDto extends BaseDto{
@@ -34,6 +36,17 @@ public class RemoteSensorsDto extends BaseDto{
 
     @Size(min = 0, max = 255)
     private String sensorTypeFiveValue;
+
+    @Size(min = 0, max = 255)
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public String getSensorTypeOneName() {
         return sensorTypeOneName;
