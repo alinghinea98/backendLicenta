@@ -1,8 +1,6 @@
 package com.alinghinea.Server.entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "remote")
@@ -38,6 +36,10 @@ public class RemoteSensors extends BaseEntity {
 
     @Column(name = "sensorTypeFiveValue",length = 128)
     private String sensorTypeFiveValue;
+
+    @OneToOne(optional = false)
+    @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = true)
+    private User user; // maybe put User user
 
     public RemoteSensors(String sensorTypeOneName, String sensorTypeOneValue, String sensorTypeTwoName, String sensorTypeTwoValue, String sensorTypeThreeName, String sensorTypeThreeValue, String sensorTypeFourName, String sensorTypeFourValue, String sensorTypeFiveName, String sensorTypeFiveValue) {
         this.sensorTypeOneName = sensorTypeOneName;
